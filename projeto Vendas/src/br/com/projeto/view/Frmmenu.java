@@ -75,7 +75,7 @@ public class Frmmenu extends javax.swing.JFrame {
         jLabel1.setText("Usuário Logado:");
 
         lblusuario.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lblusuario.setForeground(new java.awt.Color(0, 0, 255));
+        lblusuario.setForeground(new java.awt.Color(235, 102, 25));
         lblusuario.setText("Francisco");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

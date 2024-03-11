@@ -44,6 +44,7 @@ public class FrmPagamentos extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtdinheiro = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -62,28 +63,34 @@ public class FrmPagamentos extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Tela de Pagamentos");
 
-        jPanel1.setBackground(new java.awt.Color(0, 102, 204));
+        jPanel1.setBackground(new java.awt.Color(235, 102, 25));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Pagamentos");
 
+        jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/natura logo (1).png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(141, 141, 141)
+                .addGap(30, 30, 30)
+                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(232, 232, 232)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jLabel1)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addGap(12, 12, 12)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 26)); // NOI18N
@@ -309,6 +316,7 @@ public class FrmPagamentos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnfinalizar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

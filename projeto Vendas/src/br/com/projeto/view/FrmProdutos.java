@@ -69,6 +69,7 @@ public class FrmProdutos extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         painel_dados = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -103,28 +104,34 @@ public class FrmProdutos extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(0, 102, 204));
+        jPanel1.setBackground(new java.awt.Color(235, 102, 25));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Cadastro de Produtos");
 
+        jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/natura logo (1).png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addGap(27, 27, 27)
+                .addComponent(jLabel21)
+                .addGap(256, 256, 256)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(32, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(28, 28, 28))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel21)
+                    .addComponent(jLabel1))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         painel_dados.setBackground(new java.awt.Color(255, 255, 255));
@@ -622,6 +629,7 @@ public class FrmProdutos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
