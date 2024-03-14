@@ -217,14 +217,14 @@ public class FrmPagamentos extends javax.swing.JFrame {
         //finalizar venda
         double pcartao, pcheque, pdinheiro, totalpago, totalvenda, troco;
 
-        pcartao = Double.parseDouble(txtcartao.getText());
-        pcheque = Double.parseDouble(txtcheque.getText());
-        pdinheiro = Double.parseDouble(txtdinheiro.getText());
+        pcartao = Double.parseDouble(txtcartao.getText().replaceAll(",", "."));
+        pcheque = Double.parseDouble(txtcheque.getText().replaceAll(",", "."));
+        pdinheiro = Double.parseDouble(txtdinheiro.getText().replaceAll(",", "."));
         totalvenda = Double.parseDouble(txttotal.getText());
         //calcular o troco
         totalpago = pcartao + pcheque + pdinheiro;
         troco = totalpago - totalvenda;
-        txttroco.setText(String.valueOf(troco));
+        txttroco.setText(String.valueOf(troco).format("%.2f", troco));
 
         Vendas objv = new Vendas();
         //dados do cliente(cliente id)

@@ -6,6 +6,7 @@ package br.com.projeto.dao;
 
 import br.com.projeto.jdbc.ConnectionFactory;
 import br.com.projeto.model.ItemVenda;
+
 import br.com.projeto.model.Produtos;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
