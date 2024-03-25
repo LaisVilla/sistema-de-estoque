@@ -4,9 +4,9 @@
  */
 package br.com.projeto.view;
 
-import br.com.projeto.dao.ClientesDAO;
-import br.com.projeto.model.Clientes;
-import br.com.projeto.model.Utilitarios;
+import br.com.projeto.dao.ClienteDAO;
+import br.com.projeto.model.Cliente;
+import br.com.projeto.model.Utilitario;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.KeyEvent;
@@ -26,12 +26,12 @@ public class Frmclientes extends javax.swing.JFrame {
 
     public void listar() {
 
-        ClientesDAO dao = new ClientesDAO();
-        List<Clientes> lista = dao.listarClientes();
+        ClienteDAO dao = new ClienteDAO();
+        List<Cliente> lista = dao.listarClientes();
         DefaultTableModel dados = (DefaultTableModel) tabelaClientes.getModel();
         dados.setNumRows(0);
 
-        for (Clientes c : lista) {
+        for (Cliente c : lista) {
             dados.addRow(new Object[]{
                 c.getId(),
                 c.getNome(),
@@ -562,7 +562,7 @@ public class Frmclientes extends javax.swing.JFrame {
     private void btnsalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalvarActionPerformed
         //botao salvar
 
-        Clientes obj = new Clientes();
+        Cliente obj = new Cliente();
         obj.setNome(txtnome.getText());
         obj.setRg(txtrg.getText());
         obj.setCpf(txtcpf.getText());
@@ -577,20 +577,20 @@ public class Frmclientes extends javax.swing.JFrame {
         obj.setCidade(txtcidade.getText());
         obj.setUf(cbuf.getSelectedItem().toString());
 
-        ClientesDAO dao = new ClientesDAO();
+        ClienteDAO dao = new ClienteDAO();
 
         dao.cadastrarCliente(obj);
-        new Utilitarios().LimpaTela(painel_dados);
+        new Utilitario().LimpaTela(painel_dados);
 
     }//GEN-LAST:event_btnsalvarActionPerformed
 
     private void btnnovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnovoActionPerformed
-        new Utilitarios().LimpaTela(painel_dados);
+        new Utilitario().LimpaTela(painel_dados);
     }//GEN-LAST:event_btnnovoActionPerformed
 
     private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
         // botao  editar
-        Clientes obj = new Clientes();
+        Cliente obj = new Cliente();
 
         obj.setNome(txtnome.getText());
         obj.setRg(txtrg.getText());
@@ -608,19 +608,19 @@ public class Frmclientes extends javax.swing.JFrame {
 
         obj.setId(Integer.parseInt(txtcodigo.getText()));
 
-        ClientesDAO dao = new ClientesDAO();
+        ClienteDAO dao = new ClienteDAO();
         dao.alterarCliente(obj);
 
     }//GEN-LAST:event_btneditarActionPerformed
 
     private void btnexcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnexcluirActionPerformed
         // botao excluir
-        Clientes obj = new Clientes();
+        Cliente obj = new Cliente();
         obj.setId(Integer.parseInt(txtcodigo.getText()));
-        ClientesDAO dao = new ClientesDAO();
+        ClienteDAO dao = new ClienteDAO();
 
         dao.excluirCliente(obj);
-        new Utilitarios().LimpaTela(painel_dados);
+        new Utilitario().LimpaTela(painel_dados);
 
     }//GEN-LAST:event_btnexcluirActionPerformed
 
@@ -663,13 +663,13 @@ public class Frmclientes extends javax.swing.JFrame {
     private void txtpesquisaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtpesquisaKeyPressed
         String nome = "%" + txtpesquisa.getText() + "%";
 
-        ClientesDAO dao = new ClientesDAO();
-        List<Clientes> lista = dao.buscaClientePorNome(nome);
+        ClienteDAO dao = new ClienteDAO();
+        List<Cliente> lista = dao.buscaClientePorNome(nome);
 
         DefaultTableModel dados = (DefaultTableModel) tabelaClientes.getModel();
         dados.setNumRows(0);
 
-        for (Clientes c : lista) {
+        for (Cliente c : lista) {
             dados.addRow(new Object[]{
                 c.getId(),
                 c.getNome(),
@@ -695,8 +695,8 @@ public class Frmclientes extends javax.swing.JFrame {
         // botao buscar cliente por nome
 
         String nome = txtnome.getText();
-        Clientes obj = new Clientes();
-        ClientesDAO dao = new ClientesDAO();
+        Cliente obj = new Cliente();
+        ClienteDAO dao = new ClienteDAO();
 
         obj = dao.consultaPorNome(nome);
 
@@ -728,8 +728,8 @@ public class Frmclientes extends javax.swing.JFrame {
     private void txtcepKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcepKeyPressed
         //Programacao do keypress
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            Clientes obj = new Clientes();
-            ClientesDAO dao = new ClientesDAO();
+            Cliente obj = new Cliente();
+            ClienteDAO dao = new ClienteDAO();
             obj = dao.buscaCep(txtcep.getText());
 
             txtend.setText(obj.getEndereco());

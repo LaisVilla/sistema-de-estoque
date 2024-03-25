@@ -5,10 +5,10 @@
 package br.com.projeto.view;
 
 
-import br.com.projeto.dao.FornecedoresDAO;
+import br.com.projeto.dao.FornecedoreDAO;
 
-import br.com.projeto.model.Fornecedores;
-import br.com.projeto.model.Utilitarios;
+import br.com.projeto.model.Fornecedore;
+import br.com.projeto.model.Utilitario;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.KeyEvent;
@@ -28,12 +28,12 @@ public class FrmFornecedores extends javax.swing.JFrame {
 
     public void listar() {
 
-        FornecedoresDAO dao = new FornecedoresDAO();
-        List<Fornecedores> lista = dao.listarFornecedores();
+        FornecedoreDAO dao = new FornecedoreDAO();
+        List<Fornecedore> lista = dao.listarFornecedores();
         DefaultTableModel dados = (DefaultTableModel) tabelaFornecedores.getModel();
         dados.setNumRows(0);
 
-        for (Fornecedores c : lista) {
+        for (Fornecedore c : lista) {
             dados.addRow(new Object[]{
                 c.getId(),
                 c.getNome(),
@@ -553,7 +553,7 @@ public class FrmFornecedores extends javax.swing.JFrame {
     private void btnsalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalvarActionPerformed
         //botao salvar
 
-        Fornecedores obj = new Fornecedores();
+        Fornecedore obj = new Fornecedore();
         obj.setNome(txtnome.getText());
         obj.setCnpj(txtcnpj.getText());
         obj.setEmail(txtemail.getText());
@@ -567,20 +567,20 @@ public class FrmFornecedores extends javax.swing.JFrame {
         obj.setCidade(txtcidade.getText());
         obj.setUf(cbuf.getSelectedItem().toString());
 
-        FornecedoresDAO dao = new FornecedoresDAO();
+        FornecedoreDAO dao = new FornecedoreDAO();
 
         dao.cadastrarFornecedores(obj);
-        new Utilitarios().LimpaTela(painel_dados);
+        new Utilitario().LimpaTela(painel_dados);
 
     }//GEN-LAST:event_btnsalvarActionPerformed
 
     private void btnnovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnovoActionPerformed
-        new Utilitarios().LimpaTela(painel_dados);
+        new Utilitario().LimpaTela(painel_dados);
     }//GEN-LAST:event_btnnovoActionPerformed
 
     private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
         // botao  editar
-        Fornecedores obj = new Fornecedores();
+        Fornecedore obj = new Fornecedore();
 
         obj.setNome(txtnome.getText());
         obj.setCnpj(txtcnpj.getText());        
@@ -597,20 +597,20 @@ public class FrmFornecedores extends javax.swing.JFrame {
 
         obj.setId(Integer.parseInt(txtcodigo.getText()));
 
-        FornecedoresDAO dao = new FornecedoresDAO();
+        FornecedoreDAO dao = new FornecedoreDAO();
         dao.alterarFornecedor(obj);
-        new Utilitarios().LimpaTela(painel_dados);
+        new Utilitario().LimpaTela(painel_dados);
 
     }//GEN-LAST:event_btneditarActionPerformed
 
     private void btnexcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnexcluirActionPerformed
         // botao excluir
-        Fornecedores obj = new Fornecedores();
+        Fornecedore obj = new Fornecedore();
         obj.setId(Integer.parseInt(txtcodigo.getText()));
-        FornecedoresDAO dao = new FornecedoresDAO();
+        FornecedoreDAO dao = new FornecedoreDAO();
 
         dao.excluirFornecedor(obj);
-        new Utilitarios().LimpaTela(painel_dados);
+        new Utilitario().LimpaTela(painel_dados);
 
     }//GEN-LAST:event_btnexcluirActionPerformed
 
@@ -643,13 +643,13 @@ public class FrmFornecedores extends javax.swing.JFrame {
         // botao pesquisar
         String nome = "%" + txtpesquisa.getText() + "%";
 
-        FornecedoresDAO dao = new FornecedoresDAO();
-        List<Fornecedores> lista = dao.listarFornecedoresPorNome(nome);
+        FornecedoreDAO dao = new FornecedoreDAO();
+        List<Fornecedore> lista = dao.listarFornecedoresPorNome(nome);
 
         DefaultTableModel dados = (DefaultTableModel) tabelaFornecedores.getModel();
         dados.setNumRows(0);
 
-        for (Fornecedores c : lista) {
+        for (Fornecedore c : lista) {
             dados.addRow(new Object[]{
                 c.getId(),
                 c.getNome(),
@@ -679,13 +679,13 @@ public class FrmFornecedores extends javax.swing.JFrame {
         
         String nome = "%" + txtpesquisa.getText() + "%";
 
-        FornecedoresDAO dao = new FornecedoresDAO();
-        List<Fornecedores> lista = dao.listarFornecedoresPorNome(nome);
+        FornecedoreDAO dao = new FornecedoreDAO();
+        List<Fornecedore> lista = dao.listarFornecedoresPorNome(nome);
 
         DefaultTableModel dados = (DefaultTableModel) tabelaFornecedores.getModel();
         dados.setNumRows(0);
 
-        for (Fornecedores c : lista) {
+        for (Fornecedore c : lista) {
             dados.addRow(new Object[]{
                 c.getId(),
                 c.getNome(),
@@ -710,8 +710,8 @@ public class FrmFornecedores extends javax.swing.JFrame {
         // botao buscar cliente por nome
 
         String nome = txtnome.getText();
-        Fornecedores obj = new Fornecedores();
-        FornecedoresDAO dao = new FornecedoresDAO();
+        Fornecedore obj = new Fornecedore();
+        FornecedoreDAO dao = new FornecedoreDAO();
 
         obj = dao.consultaPorNome(nome);
 
@@ -742,8 +742,8 @@ public class FrmFornecedores extends javax.swing.JFrame {
     private void txtcepKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcepKeyPressed
         //Programacao do keypress
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            Fornecedores obj = new Fornecedores();
-            FornecedoresDAO dao = new FornecedoresDAO();
+            Fornecedore obj = new Fornecedore();
+            FornecedoreDAO dao = new FornecedoreDAO();
             obj = dao.buscaCep(txtcep.getText());
 
             txtend.setText(obj.getEndereco());

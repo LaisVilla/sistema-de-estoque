@@ -4,13 +4,13 @@
  */
 package br.com.projeto.view;
 
-import br.com.projeto.dao.ClientesDAO;
-import br.com.projeto.dao.FornecedoresDAO;
-import br.com.projeto.dao.ProdutosDAO;
-import br.com.projeto.model.Clientes;
-import br.com.projeto.model.Fornecedores;
-import br.com.projeto.model.Produtos;
-import br.com.projeto.model.Utilitarios;
+import br.com.projeto.dao.ClienteDAO;
+import br.com.projeto.dao.FornecedoreDAO;
+import br.com.projeto.dao.ProdutoDAO;
+import br.com.projeto.model.Cliente;
+import br.com.projeto.model.Fornecedore;
+import br.com.projeto.model.Produto;
+import br.com.projeto.model.Utilitario;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.KeyEvent;
@@ -29,7 +29,7 @@ import javax.swing.table.DefaultTableModel;
  * @author franc
  */
 public class FrmVendas extends javax.swing.JFrame {
-    Clientes obj = new Clientes();
+    Cliente obj = new Cliente();
     double total, preco, subtotal;
     int qtd;
 
@@ -528,7 +528,7 @@ public class FrmVendas extends javax.swing.JFrame {
         //busca cliente por cpf
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             
-            ClientesDAO dao = new ClientesDAO();
+            ClienteDAO dao = new ClienteDAO();
             obj = dao.buscaporcpf(txtcpf.getText());
             txtnome.setText(obj.getNome());
 
@@ -538,8 +538,8 @@ public class FrmVendas extends javax.swing.JFrame {
     private void txtcodigoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcodigoKeyPressed
         // busca produto por codigo
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            Produtos obj = new Produtos();
-            ProdutosDAO dao = new ProdutosDAO();
+            Produto obj = new Produto();
+            ProdutoDAO dao = new ProdutoDAO();
 
             obj = dao.buscaPorCodigo(Integer.parseInt(txtcodigo.getText()));
 
@@ -554,8 +554,8 @@ public class FrmVendas extends javax.swing.JFrame {
     }//GEN-LAST:event_txtdescricaoActionPerformed
 
     private void txtbuscaprodutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtbuscaprodutoActionPerformed
-        Produtos obj = new Produtos();
-        ProdutosDAO dao = new ProdutosDAO();
+        Produto obj = new Produto();
+        ProdutoDAO dao = new ProdutoDAO();
 
         obj = dao.buscaPorCodigo(Integer.parseInt(txtcodigo.getText()));
 

@@ -5,9 +5,9 @@
 package br.com.projeto.view;
 
 import br.com.projeto.dao.ItemVendaDAO;
-import br.com.projeto.dao.VendasDAO;
+import br.com.projeto.dao.VendaDAO;
 import br.com.projeto.model.ItemVenda;
-import br.com.projeto.model.Vendas;
+import br.com.projeto.model.Venda;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -175,7 +175,7 @@ public class FrmTotalVenda extends javax.swing.JFrame {
             LocalDate data_venda = LocalDate.parse(txtdata.getText(), formato);
             
             double total_venda;
-            VendasDAO dao = new VendasDAO();;
+            VendaDAO dao = new VendaDAO();;
 
             total_venda = dao.retornaTotalVendaPorData(data_venda);
             

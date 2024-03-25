@@ -4,11 +4,11 @@
  */
 package br.com.projeto.view;
 
-import br.com.projeto.dao.ClientesDAO;
-import br.com.projeto.dao.FuncionariosDAO;
-import br.com.projeto.model.Clientes;
-import br.com.projeto.model.Funcionarios;
-import br.com.projeto.model.Utilitarios;
+import br.com.projeto.dao.ClienteDAO;
+import br.com.projeto.dao.FuncionarioDAO;
+import br.com.projeto.model.Cliente;
+import br.com.projeto.model.Funcionario;
+import br.com.projeto.model.Utilitario;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.KeyEvent;
@@ -28,12 +28,12 @@ public class FrmFuncionario extends javax.swing.JFrame {
 
     public void listar() {
 
-        FuncionariosDAO dao = new FuncionariosDAO();
-        List<Funcionarios> lista = dao.listarFuncionarios();
+        FuncionarioDAO dao = new FuncionarioDAO();
+        List<Funcionario> lista = dao.listarFuncionarios();
         DefaultTableModel dados = (DefaultTableModel) tabelaFuncionario.getModel();
         dados.setNumRows(0);
 
-        for (Funcionarios c : lista) {
+        for (Funcionario c : lista) {
             dados.addRow(new Object[]{
                 c.getId(),
                 c.getNome(),
@@ -627,7 +627,7 @@ public class FrmFuncionario extends javax.swing.JFrame {
     private void btnsalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalvarActionPerformed
         //botao salvar
 
-        Funcionarios obj = new Funcionarios();
+        Funcionario obj = new Funcionario();
 
         obj.setNome(txtnome.getText());
         obj.setRg(txtrg.getText());
@@ -646,20 +646,20 @@ public class FrmFuncionario extends javax.swing.JFrame {
         obj.setCidade(txtcidade.getText());
         obj.setUf(cbuf.getSelectedItem().toString());
 
-        FuncionariosDAO dao = new FuncionariosDAO();
+        FuncionarioDAO dao = new FuncionarioDAO();
 
         dao.cadastrarfuncionarios(obj);
-        new Utilitarios().LimpaTela(painel_dados);
+        new Utilitario().LimpaTela(painel_dados);
 
     }//GEN-LAST:event_btnsalvarActionPerformed
 
     private void btnnovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnovoActionPerformed
-        new Utilitarios().LimpaTela(painel_dados);
+        new Utilitario().LimpaTela(painel_dados);
     }//GEN-LAST:event_btnnovoActionPerformed
 
     private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
         // botao  editar
-        Funcionarios obj = new Funcionarios();
+        Funcionario obj = new Funcionario();
 
         obj.setNome(txtnome.getText());
         obj.setRg(txtrg.getText());
@@ -680,20 +680,20 @@ public class FrmFuncionario extends javax.swing.JFrame {
 
         obj.setId(Integer.parseInt(txtcodigo.getText()));
 
-        FuncionariosDAO dao = new FuncionariosDAO();
+        FuncionarioDAO dao = new FuncionarioDAO();
         dao.alterarFuncionarios(obj);
         
-        new Utilitarios().LimpaTela(painel_dados);
+        new Utilitario().LimpaTela(painel_dados);
     }//GEN-LAST:event_btneditarActionPerformed
 
     private void btnexcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnexcluirActionPerformed
         // botao excluir
-        Funcionarios obj = new Funcionarios();
+        Funcionario obj = new Funcionario();
         obj.setId(Integer.parseInt(txtcodigo.getText()));
-        FuncionariosDAO dao = new FuncionariosDAO();
+        FuncionarioDAO dao = new FuncionarioDAO();
 
         dao.excluirFuncionario(obj);
-        new Utilitarios().LimpaTela(painel_dados);
+        new Utilitario().LimpaTela(painel_dados);
 
     }//GEN-LAST:event_btnexcluirActionPerformed
 
@@ -739,13 +739,13 @@ public class FrmFuncionario extends javax.swing.JFrame {
     private void txtpesquisaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtpesquisaKeyPressed
         String nome = "%" + txtpesquisa.getText() + "%";
 
-        FuncionariosDAO dao = new FuncionariosDAO();
-        List<Funcionarios> lista = dao.listarFuncionariosPorNome(nome);
+        FuncionarioDAO dao = new FuncionarioDAO();
+        List<Funcionario> lista = dao.listarFuncionariosPorNome(nome);
 
         DefaultTableModel dados = (DefaultTableModel) tabelaFuncionario.getModel();
         dados.setNumRows(0);
 
-        for (Funcionarios c : lista) {
+        for (Funcionario c : lista) {
             dados.addRow(new Object[]{
                 c.getId(),
                 c.getNome(),
@@ -775,8 +775,8 @@ public class FrmFuncionario extends javax.swing.JFrame {
         // botao buscar cliente por nome
 
         String nome = txtnome.getText();
-        Funcionarios obj = new Funcionarios();
-        FuncionariosDAO dao = new FuncionariosDAO();
+        Funcionario obj = new Funcionario();
+        FuncionarioDAO dao = new FuncionarioDAO();
 
         obj = dao.consultaPorNome(nome);
 
@@ -811,8 +811,8 @@ public class FrmFuncionario extends javax.swing.JFrame {
     private void txtcepKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcepKeyPressed
         //Programacao do keypress
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            Clientes obj = new Clientes();
-            ClientesDAO dao = new ClientesDAO();
+            Cliente obj = new Cliente();
+            ClienteDAO dao = new ClienteDAO();
             obj = dao.buscaCep(txtcep.getText());
 
             txtend.setText(obj.getEndereco());

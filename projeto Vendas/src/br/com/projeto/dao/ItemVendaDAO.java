@@ -7,7 +7,7 @@ package br.com.projeto.dao;
 import br.com.projeto.jdbc.ConnectionFactory;
 import br.com.projeto.model.ItemVenda;
 
-import br.com.projeto.model.Produtos;
+import br.com.projeto.model.Produto;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -74,7 +74,7 @@ public class ItemVendaDAO {
 
             while (rs.next()) {
                 ItemVenda item = new ItemVenda();
-                Produtos prod = new Produtos();
+                Produto prod = new Produto();
 
                 prod.setDescricao(rs.getString("p.descricao"));
                 item.setQtd(rs.getInt("i.qtd"));

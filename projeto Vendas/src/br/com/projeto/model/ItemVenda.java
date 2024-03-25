@@ -11,8 +11,8 @@ package br.com.projeto.model;
 public class ItemVenda {
      //atributos
     private int id;
-    private Vendas venda;
-    private Produtos produto;
+    private Venda venda;
+    private Produto produto;
     private int qtd;
     private double subtotal;
     
@@ -26,19 +26,19 @@ public class ItemVenda {
         this.id = id;
     }
 
-    public Vendas getVenda() {
+    public Venda getVenda() {
         return venda;
     }
 
-    public void setVenda(Vendas venda) {
+    public void setVenda(Venda venda) {
         this.venda = venda;
     }
 
-    public Produtos getProduto() {
+    public Produto getProduto() {
         return produto;
     }
 
-    public void setProduto(Produtos produto) {
+    public void setProduto(Produto produto) {
         this.produto = produto;
     }
 

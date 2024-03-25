@@ -4,8 +4,8 @@
  */
 package br.com.projeto.view;
 
-import br.com.projeto.dao.VendasDAO;
-import br.com.projeto.model.Vendas;
+import br.com.projeto.dao.VendaDAO;
+import br.com.projeto.model.Venda;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;

@@ -5,9 +5,9 @@
 package br.com.projeto.view;
 
 import br.com.projeto.dao.ItemVendaDAO;
-import br.com.projeto.dao.VendasDAO;
+import br.com.projeto.dao.VendaDAO;
 import br.com.projeto.model.ItemVenda;
-import br.com.projeto.model.Vendas;
+import br.com.projeto.model.Venda;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -220,13 +220,13 @@ public class FrmHistorico extends javax.swing.JFrame {
             LocalDate data_inicio = LocalDate.parse(txtdatainicio.getText(), formato);
             LocalDate data_fim = LocalDate.parse(txtdatafim.getText(), formato);
 
-            VendasDAO dao = new VendasDAO();;
+            VendaDAO dao = new VendaDAO();;
 
-            List<Vendas> lista = dao.listarVendasPorPeriodo(data_inicio, data_fim);
+            List<Venda> lista = dao.listarVendasPorPeriodo(data_inicio, data_fim);
 
             DefaultTableModel dados = (DefaultTableModel) tabelaHistorico.getModel();
             dados.setNumRows(0);
-            for (Vendas v : lista) {
+            for (Venda v : lista) {
 
                 dados.addRow(new Object[]{
                     v.getId(),

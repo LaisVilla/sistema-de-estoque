@@ -5,12 +5,12 @@
 package br.com.projeto.view;
 
 import br.com.projeto.dao.ItemVendaDAO;
-import br.com.projeto.dao.ProdutosDAO;
-import br.com.projeto.dao.VendasDAO;
-import br.com.projeto.model.Clientes;
+import br.com.projeto.dao.ProdutoDAO;
+import br.com.projeto.dao.VendaDAO;
+import br.com.projeto.model.Cliente;
 import br.com.projeto.model.ItemVenda;
-import br.com.projeto.model.Produtos;
-import br.com.projeto.model.Vendas;
+import br.com.projeto.model.Produto;
+import br.com.projeto.model.Venda;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
@@ -22,7 +22,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class FrmPagamentos extends javax.swing.JFrame {
 
-    Clientes cliente = new Clientes();
+    Cliente cliente = new Cliente();
     DefaultTableModel carrinho;
 
     public FrmPagamentos() {
@@ -226,7 +226,7 @@ public class FrmPagamentos extends javax.swing.JFrame {
         troco = totalpago - totalvenda;
         txttroco.setText(String.valueOf(troco).format("%.2f", troco));
 
-        Vendas objv = new Vendas();
+        Venda objv = new Venda();
         //dados do cliente(cliente id)
         objv.setCliente(cliente);
         //pega a data da venda
@@ -240,7 +240,7 @@ public class FrmPagamentos extends javax.swing.JFrame {
         objv.setTotal_venda(totalvenda);
         objv.setObs(txtobs.getText());
 
-        VendasDAO dao_v = new VendasDAO();
+        VendaDAO dao_v = new VendaDAO();
         dao_v.cadastrarVenda(objv);
 
         //retorna o id da ultima venda realizada
@@ -251,8 +251,8 @@ public class FrmPagamentos extends javax.swing.JFrame {
         for (int i = 0; i < carrinho.getRowCount(); i++) {
             int qtd_estoque,qtd_comprada,qtd_atualizada;
             
-            Produtos objp = new Produtos();
-            ProdutosDAO dao_produto=new ProdutosDAO();
+            Produto objp = new Produto();
+            ProdutoDAO dao_produto=new ProdutoDAO();
             
             ItemVenda item = new ItemVenda();
             item.setVenda(objv);

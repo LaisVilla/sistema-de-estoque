@@ -4,7 +4,7 @@
  */
 package br.com.projeto.view;
 
-import br.com.projeto.dao.FuncionariosDAO;
+import br.com.projeto.dao.FuncionarioDAO;
 import javax.swing.JOptionPane;
 
 /**
@@ -171,7 +171,7 @@ public class FrmLogin extends javax.swing.JFrame {
             email = txtemail.getText();
             senha = txtsenha.getText();
             
-            FuncionariosDAO dao = new FuncionariosDAO();
+            FuncionarioDAO dao = new FuncionarioDAO();
             dao.efetuaLogin(email,senha);
             this.dispose();
             

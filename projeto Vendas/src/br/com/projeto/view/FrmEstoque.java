@@ -5,11 +5,11 @@
 package br.com.projeto.view;
 
 import br.com.projeto.dao.ItemVendaDAO;
-import br.com.projeto.dao.ProdutosDAO;
-import br.com.projeto.dao.VendasDAO;
+import br.com.projeto.dao.ProdutoDAO;
+import br.com.projeto.dao.VendaDAO;
 import br.com.projeto.model.ItemVenda;
-import br.com.projeto.model.Produtos;
-import br.com.projeto.model.Vendas;
+import br.com.projeto.model.Produto;
+import br.com.projeto.model.Venda;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -27,12 +27,12 @@ public class FrmEstoque extends javax.swing.JFrame {
     //metodo listar na tabela 
     public void listar() {
 
-        ProdutosDAO dao = new ProdutosDAO();
-        List<Produtos> lista = dao.listarProdutos();
+        ProdutoDAO dao = new ProdutoDAO();
+        List<Produto> lista = dao.listarProdutos();
         DefaultTableModel dados = (DefaultTableModel) tabelaProdutos.getModel();
         dados.setNumRows(0);
 
-        for (Produtos c : lista) {
+        for (Produto c : lista) {
             dados.addRow(new Object[]{
                 c.getId(),
                 c.getDescricao(),
@@ -262,12 +262,12 @@ public class FrmEstoque extends javax.swing.JFrame {
         // botao pesquisar
         String nome = "%" + txtpesquisa.getText() + "%";
 
-        ProdutosDAO dao = new ProdutosDAO();
-        List<Produtos> lista = dao.listarProdutosPorNome(nome);
+        ProdutoDAO dao = new ProdutoDAO();
+        List<Produto> lista = dao.listarProdutosPorNome(nome);
 
         DefaultTableModel dados = (DefaultTableModel) tabelaProdutos.getModel();
         dados.setNumRows(0);
-        for (Produtos c : lista) {
+        for (Produto c : lista) {
             dados.addRow(new Object[]{
                 c.getId(),
                 c.getDescricao(),
@@ -291,7 +291,7 @@ public class FrmEstoque extends javax.swing.JFrame {
 
             qtd_nova = qtd_estoque + qtd;
 
-            ProdutosDAO dao = new ProdutosDAO();
+            ProdutoDAO dao = new ProdutoDAO();
 
             dao.adicionarEstoque(idproduto, qtd_nova);
             JOptionPane.showMessageDialog(null, "Estoque do produto atualizado");
