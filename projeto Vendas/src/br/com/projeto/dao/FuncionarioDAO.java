@@ -103,29 +103,6 @@ public class FuncionarioDAO {
         }
     }
 
-    //metodo excluir funcionarios
-    public void excluirFunncionarios(Funcionario obj) {
-
-        try {
-            //1 passo - criar o comando sql
-            String sql = "delete from tb_funcionarios where id = ?";
-
-            //2 passo - conectar o banco de dados e organizar o comando sql
-            PreparedStatement stmt = con.prepareStatement(sql);
-            stmt.setInt(1, obj.getId());
-
-            //3 passo - executar o comando sql
-            stmt.execute();
-            stmt.close();
-
-            JOptionPane.showMessageDialog(null, "Excluido com Sucesso");
-
-        } catch (SQLException erro) {
-            JOptionPane.showMessageDialog(null, "erro" + erro);
-        }
-
-    }
-
     //METODO listar todos funcionarios
     public List<Funcionario> listarFuncionarios() {
         try {
@@ -316,19 +293,21 @@ public class FuncionarioDAO {
                     Frmmenu tela = new Frmmenu();
                     tela.usuariologado = rs.getString("nome");
                     tela.setVisible(true);
-                    
-                    
+
                 } else if (rs.getString("nivel_acesso").equals("Usuário")) {
                     //caso o usuario seja do tipo limitado
                     JOptionPane.showMessageDialog(null, "seja bem vindo ao sistema");
                     Frmmenu tela = new Frmmenu();
                     tela.usuariologado = rs.getString("nome");
                     //desabilitar os menu
-                    
+
                     tela.menu_posicao.setEnabled(false);
                     tela.menu_controlevendas.setEnabled(false);
+                    tela.jMenu1.setEnabled(false);
+                    tela.jMenu2.setEnabled(false);
+                    tela.jMenu3.setEnabled(false);
                     tela.setVisible(true);
-                    
+
                 }
 
             } else {
